@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - '0.12'
+  - '0.10'
+  - iojs
+script:
+  - npm run coverage
+after_script:
+  - 'npm install codeclimate-test-reporter && cat coverage/lcov.info | codeclimate'
+env:
+  global:
+    - secure: Yl7kDwdncNEI0zXIiCfQnWF51/U1VTvHR4R32db6OwiSmqwbvsbi7ijCgpd0gW+TqtYoD7jraXUhbiht/UEQVmeaiWvGA+RdhrKh52XXUDYcjeM915VluytEgqEDnA6PlS33+AruAK/KUrEHkjWo/zmsgOYoIR5igBFggr7gckw=
