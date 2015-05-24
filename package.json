@@ -32,8 +32,9 @@
     "parse-git-config": "^0.3.1"
   },
   "devDependencies": {
-    "eslint": "^0.20.0",
-    "istanbul": "^0.3.13",
+    "eslint": "^0.21.2",
+    "eslint-config-vaffel": "^1.0.0",
+    "istanbul": "^0.3.14",
     "tape": "^4.0.0"
   }
 }
