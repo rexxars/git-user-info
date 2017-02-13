@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "coverage": "istanbul cover tape -- test/**/*.test.js",
     "pretest": "npm run lint",
-    "prepublish": "npm prune && npm test",
+    "prepublish": "in-publish && npm prune && npm test || not-in-publish",
     "test": "tape test/**/*.test.js"
   },
   "repository": {
@@ -27,14 +27,15 @@
   },
   "homepage": "https://github.com/rexxars/git-user-info",
   "dependencies": {
-    "extend-shallow": "^1.1.2",
-    "git-config-path": "^0.1.0",
-    "parse-git-config": "^0.3.1"
+    "extend-shallow": "^2.0.1",
+    "git-config-path": "^1.0.1",
+    "in-publish": "^2.0.0",
+    "parse-git-config": "^1.1.1"
   },
   "devDependencies": {
-    "eslint": "^0.21.2",
-    "eslint-config-vaffel": "^1.0.0",
-    "istanbul": "^0.3.14",
+    "eslint": "^3.15.0",
+    "eslint-config-vaffel": "^5.0.0",
+    "istanbul": "^0.4.5",
     "tape": "^4.0.0"
   }
 }
