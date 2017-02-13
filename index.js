@@ -5,12 +5,14 @@ var parse = require('parse-git-config');
 var extend = require('extend-shallow');
 
 module.exports = function(options) {
-    options = extend({cwd: '/', path: gitconfig}, options);
-    var config = parse.sync(options);
-
-    if (typeof config === 'object' && config.hasOwnProperty('user')) {
-        return config.user;
+    var opts = extend({cwd: '/', path: gitconfig}, options);
+    var user = null;
+    try {
+        var config = parse.sync(opts);
+        user = config && config.user ? config.user : null;
+    } catch (err) {
+        return null;
     }
 
-    return null;
+    return user || null;
 };
