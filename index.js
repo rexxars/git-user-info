@@ -1,18 +1,20 @@
-'use strict';
+const gitconfig = require('git-config-path')
+const parse = require('parse-git-config')
 
-var gitconfig = require('git-config-path');
-var parse = require('parse-git-config');
-var extend = require('extend-shallow');
+async function getGitUserInfo(options = {}) {
+  const opts = {cwd: '/', path: gitconfig, ...options}
+  return new Promise((resolve, reject) => {
+    parse(opts, (err, config) => {
+      if (err) {
+        reject(err)
+        return
+      }
 
-module.exports = function(options) {
-    var opts = extend({cwd: '/', path: gitconfig}, options);
-    var user = null;
-    try {
-        var config = parse.sync(opts);
-        user = config && config.user ? config.user : null;
-    } catch (err) {
-        return null;
-    }
+      resolve(config && config.user ? config.user : null)
+    })
+  })
+}
 
-    return user || null;
-};
+module.exports = {
+  getGitUserInfo,
+}

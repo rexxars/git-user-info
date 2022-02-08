@@ -15,7 +15,7 @@ indent_style = space
 indent_size = tab
 
 # Number of columns representing a tab character [an integer]
-tab_width = 4
+tab_width = 2
 
 # Line breaks representation ["lf", "cr", "crlf"]
 end_of_line = lf
