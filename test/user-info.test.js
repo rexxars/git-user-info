@@ -21,3 +21,8 @@ test('should return null on invalid .gitconfig', async function (t) {
   t.equals(info, null, 'invalid .gitconfig should return null')
   t.end()
 })
+
+test('does not crash if no `path` is given', async function (t) {
+  await getGitUserInfo()
+  t.end()
+})
