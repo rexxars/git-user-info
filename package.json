@@ -1,6 +1,6 @@
 {
   "name": "git-user-info",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Get the user info for the current user from git config, at the project or global scope",
   "main": "index.js",
   "scripts": {
