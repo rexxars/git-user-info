@@ -14,6 +14,10 @@ async function getGitUserInfo(options = {}) {
 
 function getUserFromConfig(options) {
   return new Promise((resolve, reject) => {
+    if (typeof options.path !== 'string') {
+      return resolve(null)
+    }
+
     parse(options, (err, config) => {
       if (err) {
         reject(err)

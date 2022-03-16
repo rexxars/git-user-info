@@ -26,3 +26,13 @@ test('does not crash if no `path` is given', async function (t) {
   await getGitUserInfo()
   t.end()
 })
+
+test('does not crash if `path` is given', async function (t) {
+  await getGitUserInfo()
+  t.end()
+})
+
+test('should return null on invalid path', async function (t) {
+  t.equals(await getGitUserInfo({path: 123}), null, 'should be null')
+  t.end()
+})
